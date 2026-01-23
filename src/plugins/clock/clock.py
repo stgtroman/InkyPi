@@ -367,7 +367,7 @@ class Clock(BasePlugin):
     def translate_word_grid_positions(hour, minute, language="en"):
         text_blocks = TEXT_BLOCKS.get(language) # get the text blocks for the language from constants
         minute_blocks = MINUTE_BLOCKS.get(language) # get the minute blocks for the language from constants
-        
+
         letters = text_blocks.get("IT IS") # Inital letters
 
         _minute = minute
@@ -387,9 +387,9 @@ class Clock(BasePlugin):
             elif (18 <= (minute%30) <= 27):
                 letters.extend(text_blocks.get("VOR")) # TO
         else:
-            if (3 <= minute < 33):
+            if 3 <= minute < 33:
                 letters.extend(text_blocks.get("PAST")) # PAST
-            elif (33 <= minute <= 57):
+            elif 33 <= minute <= 57:
                 letters.extend(text_blocks.get("TO")) # TO
 
         hours = HOURS_BLOCKS.get(language)
