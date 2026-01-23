@@ -402,5 +402,5 @@ class Clock(BasePlugin):
 
         if ((0 <= minute < 3) or (57 < minute <= 60)) and (LANGUAGE_OPTIONS.get(language).get("OCLOCK")==True): # Final word only if needed
             letters.extend(text_blocks.get("OCLOCK")) # OCLOCK 
-        logger.info(letters)
+        logger.debug(letters)
         return letters
