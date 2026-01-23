@@ -136,5 +136,5 @@ HOURS_BLOCKS = {
 
 HOUR_THRESHOLD = {
     "en": 33,
-    "swabian": 12
+    "swabian": 13
 }

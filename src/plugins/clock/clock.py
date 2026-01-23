@@ -367,7 +367,7 @@ class Clock(BasePlugin):
     def translate_word_grid_positions(hour, minute, language="en"):
         text_blocks = TEXT_BLOCKS.get(language) # get the text blocks for the language from constants
         minute_blocks = MINUTE_BLOCKS.get(language) # get the minute blocks for the language from constants
-
+        
         letters = text_blocks.get("IT IS") # Inital letters
 
         _minute = minute
@@ -394,7 +394,7 @@ class Clock(BasePlugin):
 
         hours = HOURS_BLOCKS.get(language)
         
-        if minute > HOUR_THRESHOLD.get(language): # handle language specific hour reference ("past current hour" or "to next hour")
+        if minute >= HOUR_THRESHOLD.get(language): # handle language specific hour reference ("past current hour" or "to next hour")
             letters.extend(hours[hour])
         else:
             letters.extend(hours[hour - 1])
