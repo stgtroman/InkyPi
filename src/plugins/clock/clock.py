@@ -368,7 +368,8 @@ class Clock(BasePlugin):
         text_blocks = TEXT_BLOCKS.get(language) # get the text blocks for the language from constants
         minute_blocks = MINUTE_BLOCKS.get(language) # get the minute blocks for the language from constants
 
-        letters = text_blocks.get("IT IS") # Inital letters
+        letters = [] # initialize list of letter positions to light up
+        letters.extend(text_blocks.get("IT IS")) # Inital letters
 
         _minute = minute
         if((language=="swabian") and (43 <= minute < 48)): # Swabian specific handling of "QUARTER TO"
@@ -401,5 +402,5 @@ class Clock(BasePlugin):
 
         if ((0 <= minute < 3) or (57 < minute <= 60)) and (LANGUAGE_OPTIONS.get(language).get("OCLOCK")==True): # Final word only if needed
             letters.extend(text_blocks.get("OCLOCK")) # OCLOCK 
-
+        logger.info(letters)
         return letters
